@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 
 public class DataGridResult implements Serializable {
-//dgsdgdsdgg
 	private long total;
 	private List rows;
 	public long getTotal() {
