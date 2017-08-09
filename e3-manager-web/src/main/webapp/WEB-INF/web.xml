@@ -36,6 +36,14 @@
 		<servlet-name>e3-manager</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>  
-  
-  
+<!-- 配置错误也面 -->  
+<error-page>
+        <error-code>500</error-code>
+        <location>/error.jsp</location>
+ </error-page>
+ 
+  <error-page>
+<error-code>404</error-code>
+<location>/error.jsp</location>
+  </error-page>
 </web-app>

@@ -118,7 +118,7 @@
         	    if (r){
         	    	var params = {"ids":ids};
                 	$.post("/rest/item/delete",params, function(data){
-            			if(data.status == 200){
+            			if(data.status== 200){
             				$.messager.alert('提示','删除商品成功!',undefined,function(){
             					$("#itemList").datagrid("reload");
             				});

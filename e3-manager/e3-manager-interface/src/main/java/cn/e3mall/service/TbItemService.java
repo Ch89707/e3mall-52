@@ -7,4 +7,5 @@ public interface TbItemService {
 
 	TbItem selectByPrimaryKey(Long id);
 	DataGridResult getItemList(int page,int rows);
+	void deleteItemById(long id);
 }

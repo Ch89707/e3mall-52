@@ -98,6 +98,7 @@
 			<groupId>com.github.pagehelper</groupId>
 			<artifactId>pagehelper</artifactId>
 		</dependency>
+		<!-- 天假FastDFS的工程依赖 -->
   </dependencies>
   <!-- 配置tomcat插件 -->
 	<build>

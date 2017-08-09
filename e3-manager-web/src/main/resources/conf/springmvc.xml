@@ -23,7 +23,7 @@
 	<!--引用dubbo服务 -->
 	<dubbo:application name="e3-manager-web"/>
 	<!-- 配置注册中心 -->
-	<dubbo:registry protocol="zookeeper" address="192.168.181.128:2181"/>
+	<dubbo:registry protocol="zookeeper" address="192.168.25.128:2181"/>
 	<!--引用服务  -->
 	<dubbo:reference interface="cn.e3mall.service.TbItemService" id="tbItemService"/>
 	<dubbo:reference interface="cn.e3mall.service.TbItemCatService" id="tbItemCatService"/>

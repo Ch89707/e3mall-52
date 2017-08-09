@@ -40,4 +40,10 @@ public class TbItemServiceImpl implements TbItemService {
 			return dataGridResult;
 	}
 
+	@Override
+	public void deleteItemById(long id) {
+		 tbItemMapper.deleteByPrimaryKey(id);
+		
+	}
+
 }
