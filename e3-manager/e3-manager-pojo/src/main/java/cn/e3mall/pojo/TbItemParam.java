@@ -53,4 +53,6 @@ public class TbItemParam implements Serializable{
     public void setParamData(String paramData) {
         this.paramData = paramData == null ? null : paramData.trim();
     }
+
+    
 }

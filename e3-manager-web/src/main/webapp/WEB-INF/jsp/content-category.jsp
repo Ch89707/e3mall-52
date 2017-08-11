@@ -10,12 +10,14 @@
     <div data-options="iconCls:'icon-remove',name:'delete'">删除</div>
 </div>
 <script type="text/javascript">
+/* 页面加载后执行下面的js */
 $(function(){
 	$("#contentCategory").tree({
 		url : '/content/category/list',
 		animate: true,
 		method : "GET",
 		onContextMenu: function(e,node){
+			/*e是一个事件，  */
             e.preventDefault();
             $(this).tree('select',node.target);
             $('#contentCategoryMenu').menu('show',{
@@ -62,8 +64,12 @@ function menuHandler(item){
 	}else if(item.name === "delete"){
 		$.messager.confirm('确认','确定删除名为 '+node.text+' 的分类吗？',function(r){
 			if(r){
-				$.post("/content/category/delete/",{id:node.id},function(){
+				$.post("/content/category/delete/",{id:node.id},function(data){
+					if(data=="ok"){
 					tree.tree("remove",node.target);
+					}else{
+						alert("不能删除父节点")
+					}
 				});	
 			}
 		});

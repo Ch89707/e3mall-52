@@ -43,6 +43,7 @@
         iconCls:'icon-edit',
         handler:function(){
         	var ids = getSelectionsIds();
+     /*    	alert(ids) */
         	if(ids.length == 0){
         		$.messager.alert('提示','必须选择一个商品才能编辑!');
         		return ;
@@ -51,14 +52,13 @@
         		$.messager.alert('提示','只能选择一个商品!');
         		return ;
         	}
-        	
-        	$("#itemEditWindow").window({
+
+        	$("#itemEditWindow").panel({
         		onLoad :function(){
         			//回显数据
         			var data = $("#itemList").datagrid("getSelections")[0];
         			data.priceView = E3.formatPrice(data.price);
         			$("#itemeEditForm").form("load",data);
-        			
         			// 加载商品描述
         			$.getJSON('/rest/item/query/item/desc/'+data.id,function(_data){
         				if(_data.status == 200){
@@ -95,6 +95,8 @@
         				}
         			});
         			
+        			
+        			
         			E3.init({
         				"pics" : data.image,
         				"cid" : data.cid,
@@ -105,7 +107,8 @@
         		}
         	}).window("open");
         }
-    },{
+    },
+    {
         text:'删除',
         iconCls:'icon-cancel',
         handler:function(){
