@@ -22,6 +22,6 @@
 	自己的ServiceImpl，然后web工程引用这个接口，去间接的访问Service工程的ServiceImpl类，重点要在dubbo的注册中心zookeeper，注册服务和引用服务；
 	-->
 	<dubbo:service interface="cn.e3mall.content.service.TbContentIndexService" ref="tbContentIndexServiceImpl" timeout="600000" />
-	
-	
+	<dubbo:service interface="cn.e3mall.content.service.TbContentCategoryService" ref="tbContentCategoryServiceImpl" timeout="600000" />
+	<dubbo:service interface="cn.e3mall.content.service.TbContentService" ref="tbContentServiceImpl" timeout="600000" />
 </beans>
