@@ -1,16 +1,21 @@
 package cn.e3mall.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+
 import cn.e3mall.common.pojo.DataGridResult;
 import cn.e3mall.common.pojo.E3Result;
 import cn.e3mall.pojo.TbContent;
-import cn.e3mall.service.TbContentCategoryService;
-import cn.e3mall.service.TbContentService;
+import cn.e3mall.content.service.TbContentCategoryService;
+import cn.e3mall.content.service.TbContentService;
 
 @RequestMapping("/content")
 @Controller
@@ -22,7 +27,14 @@ public class ContentContorller {
 	@RequestMapping("/query/list")
 	@ResponseBody
 	public DataGridResult getContentList(long categoryId,int rows,int page){
-		DataGridResult dataGridResult = tbContentService.getContentList(categoryId,rows,page);
+		PageHelper.startPage(page, rows);
+		
+		 List<TbContent> list = tbContentService.getContentList(categoryId);
+			PageInfo<TbContent>info=new PageInfo<>(list);
+			long total = info.getTotal();
+		DataGridResult dataGridResult = new DataGridResult();
+		dataGridResult.setTotal(total);
+		dataGridResult.setRows(list);
 		return dataGridResult;
 	}
 
@@ -41,6 +53,8 @@ public class ContentContorller {
 		E3Result e3Result = tbContentService.updateContent(tbContent);
 		return e3Result;
 	}
+	
+	
 	@RequestMapping("/delete")
 	@ResponseBody
 	public E3Result deleteContent(String ids){

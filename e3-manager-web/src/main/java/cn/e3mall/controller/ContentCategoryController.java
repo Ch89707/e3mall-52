@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import cn.e3mall.common.pojo.E3Result;
 import cn.e3mall.common.pojo.TreeNode;
 import cn.e3mall.pojo.TbContentCategory;
-import cn.e3mall.service.TbContentCategoryService;
+import cn.e3mall.content.service.TbContentCategoryService;
 
 @Controller
 public class ContentCategoryController {
@@ -55,6 +55,7 @@ public class ContentCategoryController {
 		tbContentCategoryService.updateContentCategory(id, name);
 		return E3Result.ok();
 	}
+	
 	@RequestMapping("/content/category/delete")
 	@ResponseBody
 	public String deleteNode(long id){

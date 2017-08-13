@@ -39,8 +39,8 @@
 	<dubbo:reference interface="cn.e3mall.service.TbItemCatService" id="tbItemCatService"/>
 	<dubbo:reference interface="cn.e3mall.service.TbItemDescService" id="tbItemDescService"/>
 	<dubbo:reference interface="cn.e3mall.service.TbItemParamService" id="tbItemParamService"/>
-	<dubbo:reference interface="cn.e3mall.service.TbContentCategoryService" id="tbContentCategoryService"/>
-	<dubbo:reference interface="cn.e3mall.service.TbContentService" id="tbContentService"/>
+	<dubbo:reference interface="cn.e3mall.content.service.TbContentCategoryService" id="tbContentCategoryService"/>
+	<dubbo:reference interface="cn.e3mall.content.service.TbContentService" id="tbContentService"/>
 	<dubbo:reference interface="cn.e3mall.service.ItemParamService" id="itemParamService"/>
 	
 </beans>
